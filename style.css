@@ -289,42 +289,53 @@ header nav a {
 
 #contact {
     background: #242330;
+    padding-top: 50px;
+    text-align: center;
 }
 
 #contact .content {
-    height: 100%;
+    height: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 40px;
 }
 
 #contact .thank {
     font-size: 5em;
     font-weight: bold;
-    display: block;
 }
 
 #contact .des {
-    width: 5;
-    max-width: 80%;
-    text-align: center;
-    white-space: nowrap;
+    max-width: 600px;
+    font-size: 1.1em;
+    color: #ccc;
+    line-height: 1.5em;
+    white-space: normal;
 }
 
 #contact .des a {
-    margin-top: 1.2em;
-    white-space: nowrap; /* Add this line to prevent line breaks */
+    display: inline-block;
+    margin-top: 1em;
+    font-weight: bold;
 }
 
 #contact .list {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 #contact .list .item {
-    display: inline-block;
-    margin: 10px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #eee;
+    font-size: 1.2em;
 }
+
 
 @media screen and (max-width: 991px) {
     /* ipad, tablets */
@@ -417,3 +428,150 @@ a:hover {
     transition: all 0.3s ease-in-out;
 }
 
+.timeline-title {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    font-family: 'Righteous', sans-serif;
+    color: #fff;
+  }
+  
+  .timeline-horizontal {
+    display: flex;
+    overflow-x: auto;
+    padding: 60px 20px 40px;
+    gap: 50px;
+    position: relative;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+  }
+  
+  .timeline-horizontal::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .timeline-event {
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+    position: relative;
+    background: #2a2f3a;
+    padding: 20px;
+    border-radius: 20px;
+    min-width: 200px;
+    max-width: 200px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .timeline-event:hover {
+    transform: translateY(-5px);
+  }
+  
+  .timeline-dot {
+    width: 16px;
+    height: 16px;
+    background-color: #E4454A;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    margin: 0 auto 15px auto;
+  }
+  
+  .timeline-date {
+    color: #CA3EA7;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .timeline-content h3 {
+    font-size: 1.2em;
+    color: #fff;
+    margin-bottom: 5px;
+  }
+  
+  .timeline-content p {
+    color: #ddd;
+    font-size: 0.9em;
+    margin: 0;
+  }
+  
+  .timeline-track {
+    scroll-behavior: smooth;
+}
+
+
+.carousel {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+  
+  .carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .project-card {
+    flex: 0 0 100%;
+    max-width: 93%;
+    padding: 40px;
+    text-align: center;
+    background: #fff;
+    border-radius: 20px;
+    color: #333;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+  
+  .project-card img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .project-card h3 {
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+  
+  .project-card p {
+    font-size: 1em;
+    margin-bottom: 15px;
+    color: #444;
+  }
+  
+  .project-card a {
+    color: #CA3EA7;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2em;
+    background: rgba(0,0,0,0.2);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .carousel-btn:hover {
+    background: rgba(0,0,0,0.4);
+  }
+  
+  .carousel-btn.left {
+    left: 10px;
+  }
+  
+  .carousel-btn.right {
+    right: 10px;
+  }
+  

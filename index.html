@@ -36,46 +36,43 @@
         </div>
         <div class="tab" id="experience">
             <div class="container">
-                <div class="list">
-                    <div class="item">
-                        <div class="time">2010</div>
-                        <i class="fa-solid fa-school-flag"></i>
-                        <div class="content">
-                            <div class="job">I went to School</div>
-                            <div class="company">University of Toronto</div>
-                            <div class="des"></div>
+                <h2 class="timeline-title">My Journey</h2>
+                <div class="timeline-horizontal">
+                    <div class="timeline-event">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2023</div>
+                        <div class="timeline-content">
+                            <h3>Graduated High School</h3>
+                            <p>Horizon Private School</p>
                         </div>
                     </div>
-                    <div class="item">
-                        <div class="time">2019</div>
-                        <i class="fa-solid fa-briefcase"></i>
-                        <div class="content">
-                            <div class="job">Backend developer</div>
-                            <div class="company">Google</div>
-                            <div class="des"></div>
+                    <div class="timeline-event">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2023</div>
+                        <div class="timeline-content">
+                            <h3>Joined University</h3>
+                            <p>University of Toronto</p>
                         </div>
                     </div>
-                    <div class="item">
-                        <div class="time">2020</div>
-                        <i class="fa-solid fa-briefcase"></i>
-                        <div class="content">
-                            <div class="job">Frontend developer</div>
-                            <div class="company">Microsoft</div>
-                            <div class="des"></div>
+                    <div class="timeline-event">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2024</div>
+                        <div class="timeline-content">
+                            <h3>Worked in Sales and Marketing</h3>
+                            <p>Beaver Sealer</p>
+                        </div>
+                    </div>
+                    <div class="timeline-event">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2024</div>
+                        <div class="timeline-content">
+                            <h3>Worked as Operations assistant</h3>
+                            <p>Alfa Prime Concrete supplies</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="item">
-                <div class="time">2024</div>
-                <i class="fa-solid fa-briefcase"></i>
-                <div class="content">
-                    <div class="job">FullStack developer</div>
-                    <div class="company">Apple</div>
-                    <div class="des"></div>
-                        </div>
-                    </div>
-                </div>    
-            </div>
-        </div>
+        </div>        
         <div class="tab" id="skill">
             <div class="container">
                 <div class="list">
@@ -100,8 +97,8 @@
                         <div class="des"></div>
                     </div>
                     <div class="item">
-                        <i class="fa-brands fa-php"></i>
-                        <div class="name">PHP</div>
+                        <i class="fa-brands fa-java"></i>
+                        <div class="name">Java</div>
                         <div class="des"></div>
                     </div>
                     <div class="item">
@@ -114,104 +111,84 @@
         </div>
         <div class="tab" id="project">
             <div class="container">
-                <div class="list">
-                    <div class="item">
-                        <img src="images/project1.jpeg">
-                        <div class="index">#1</div>
-                        <div class="name">Project1</div>
-                        <div class="des"></div>
-                        <div class="author">
-                            <div class="job">FullStack</div>
-                            <div class="time">
-                                <i class="fa-regular fa-clock"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img src="images/project2.jpeg">
-                        <div class="index">#2</div>
-                        <div class="name">Project2</div>
-                        <div class="des"></div>
-                        <div class="author">
-                            <div class="job">FullStack</div>
-                            <div class="time">
-                                <i class="fa-regular fa-clock"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img src="images/project3.jpeg">
-                        <div class="index">#3</div>
-                        <div class="name">Project3</div>
-                        <div class="des"></div>
-                        <div class="author">
-                            <div class="job">FullStack</div>
-                            <div class="time">
-                                <i class="fa-regular fa-clock"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img src="images/project4.jpeg">
-                        <div class="index">#4</div>
-                        <div class="name">Project4</div>
-                        <div class="des"></div>
-                        <div class="author">
-                            <div class="job">FullStack</div>
-                            <div class="time">
-                                <i class="fa-regular fa-clock"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img src="images/project5.jpeg">
-                        <div class="index">#5</div>
-                        <div class="name">Project5</div>
-                        <div class="des"></div>
-                        <div class="author">
-                            <div class="job">FullStack</div>
-                            <div class="time">
-                                <i class="fa-regular fa-clock"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img src="images/project6.jpeg">
-                        <div class="index">#6</div>
-                        <div class="name">Project6</div>
-                        <div class="des"></div>
-                        <div class="author">
-                            <div class="job">FullStack</div>
-                            <div class="time">
-                                <i class="fa-regular fa-clock"></i>
-                            </div>
-                        </div>
-                    </div>
+              <h2 class="timeline-title">Projects</h2>
+              <div class="carousel">
+                <button class="carousel-btn left" onclick="prevSlide()">&#10094;</button>
+                <div class="carousel-track" id="carouselTrack">
+                  <div class="project-card">
+                    <img src="images/project1.png" alt="Project 1">
+                    <h3>Volunteer Helper Website</h3>
+                    <p>Developed a Volunteer Helper website using HTML, CSS, and JavaScript to connect volunteers with local organizations. The site features a responsive design for accessibility across devices, interactive elements for enhanced user experience, and detailed profiles for volunteers and organizations. Advanced search and filter options streamline finding suitable opportunities, while real-time notifications keep users updated on new matches. Secure user authentication ensures data protection. This project honed my front-end development skills and contributed to community engagement by providing a practical solution for volunteer coordination.
+                    </p>
+                    <a href="https://volunteerhelper.netlify.app/" target="_blank">View</a>
+                  </div>
+                  <div class="project-card">
+                    <img src="images/project2.png" alt="Project 2">
+                    <h3>Business analysis using Graphs
+                    </h3>
+                    <p>Developed an innovative business analysis map leveraging graph methodology, implemented with Python and its powerful libraries. The project aimed to provide a clear visualization of business processes and metrics, enhancing strategic decision-making
+                    </p>
+                    <a href="https://github.com/Towaiji/business-analysis-using-graphs" target="_blank">View on GitHub</a>
+                  </div>
+                  <div class="project-card">
+                    <img src="images/project3.png" alt="Project 3">
+                    <h3>SignSpeak – Real-Time Sign Language Translator
+                    </h3>
+                    <p>Developed the backend of a real-time sign language recognition system called SignSpeak for the Gen AI Genesis Hackathon. Implemented using Python, TensorFlow, Flask, and OpenCV, the project features a deep learning pipeline utilizing an LSTM model trained on collected gesture data for accurate real-time gesture prediction. The Flask application processes live video streams through OpenCV, providing seamless interaction and sign language translation. This project significantly enhanced my expertise in machine learning, deep learning, real-time data processing, and Python-based web development.
+                    </p>
+                    <a href="https://github.com/Towaiji/SignLanguageTranslator" target="_blank">View on GitHub</a><br>
+                    <a href="https://devpost.com/software/signspeak-qoarj9" target="_blank">View on Devpost</a>
+                  </div>
+                  <div class="project-card">
+                    <img src="images/project4.png" alt="Project 4">
+                    <h3>Dr. Mario - Assembly Language Implementation
+                    </h3>
+                    <p>Developed a low-level recreation of the classic Dr. Mario game using the Saturn assembler. This project aimed to replicate fundamental gameplay mechanics where players match colors to eliminate viruses, similar to the original game. The implementation involved writing efficient Assembly code to handle real-time inputs, memory management, and rendering. This project significantly enhanced my understanding of computer architecture, Assembly language programming, and low-level logic design.
+                    </p>
+                    <a href="https://github.com/Towaiji/DrMario-Assembly" target="_blank">View on GitHub</a>
+                  </div>
+                  <div class="project-card">
+                    <img src="images/project5.png" alt="Project 5">
+                    <h3>chainwatch ai
+                    </h3>
+                    <p>ChainWatch AI is a modular suite of specialized AI agents developed for the Fetch.ai Hackathon at Techkriti'25, IIT Kanpur. This project demonstrates a network of micro-agents that interact to deliver critical insights and notifications for the crypto domain. Each agent is designed for a specific task and can be easily extended or integrated with live data sources.
+                    </p>
+                    <a href="https://github.com/Towaiji/chainwatch-ai" target="_blank">View on GitHub</a><br>
+                    <a href="https://devpost.com/software/chainwatch-ai?ref_content=my-projects-tab&ref_feature=my_projects" target="_blank">View on Devpost</a>
+                  </div>
                 </div>
+                <button class="carousel-btn right" onclick="nextSlide()">&#10095;</button>
+              </div>
             </div>
-        </div>
+          </div>
+          
         <div class="tab" id="contact">
             <div class="container">
-                <div class="content">
-                    <div class="thank text-gradient">Contact!</div>
-                    <div class="des">Reach out to me if you want to build a project!
-                        <br>
-                        <a data-tab="intro" class="text-gradient">See my Intro</a>
-                    </div>
-                    <div class="list">
-                        <div class="item">
-                            <i class="fa-solid fa-phone">+1 647 638 6639</i>
-                        </div>
-                        <div class="item">
-                            <i class="fa-regular fa-envelope">aliyasiraltowaiji@gmail.com</i>
-                        </div>
-                        <div class="item">
-                            <i class="fa-brands fa-instagram">@Towaiji_</i>
-                        </div>
-                    </div>
+              <div class="content">
+                <div class="thank text-gradient">Contact!</div>
+                <div class="des">
+                  Reach out to me if you want to build a project!
+                  <br />
+                  <a data-tab="intro" class="text-gradient">See my Intro</a>
                 </div>
+                <div class="list">
+                  <div class="item">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+1 647 638 6639</span>
+                  </div>
+                  <div class="item">
+                    <i class="fa-regular fa-envelope"></i>
+                    <span>aliyasiraltowaiji@gmail.com</span>
+                  </div>
+                  <div class="item">
+                    <i class="fa-brands fa-instagram"></i>
+                    <span>@Towaiji_</span>
+                  </div>
+                </div>
+              </div>
             </div>
-        </div>
+          </div>
+          
         <script src="app.js"></script>
     </body>
 </html>

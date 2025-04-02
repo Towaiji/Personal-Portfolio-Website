@@ -70,5 +70,26 @@ function type() {
 
 type();
 
+let currentIndex = 0;
 
+function updateCarousel() {
+  const track = document.getElementById("carouselTrack");
+  const width = track.offsetWidth;
+  track.style.transform = `translateX(-${currentIndex * width}px)`;
+}
 
+function nextSlide() {
+  const track = document.getElementById("carouselTrack");
+  const maxSlides = track.children.length;
+  currentIndex = (currentIndex + 1) % maxSlides;
+  updateCarousel();
+}
+
+function prevSlide() {
+  const track = document.getElementById("carouselTrack");
+  const maxSlides = track.children.length;
+  currentIndex = (currentIndex - 1 + maxSlides) % maxSlides;
+  updateCarousel();
+}
+
+window.addEventListener("resize", updateCarousel);
