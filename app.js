@@ -25,3 +25,50 @@ tabs.forEach(tab => {
         }
     });
 });
+
+const jobElement = document.querySelector(".job span");
+const roles = ["Developer", "Designer", "Engineer", "Coder", "Innovator", "Programmer", "Explorer"];
+let roleIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+let pauseEnd = false;
+
+function type() {
+    const currentRole = roles[roleIndex];
+
+    if (!isDeleting) {
+        charIndex++;
+        jobElement.textContent = currentRole.substring(0, charIndex);
+    } else {
+        charIndex--;
+        jobElement.textContent = currentRole.substring(0, charIndex);
+    }
+
+    let delay = isDeleting ? 50 : 100;
+
+    // Pause *after* full word is typed
+    if (!isDeleting && charIndex === currentRole.length) {
+        pauseEnd = true;
+        delay = 800; // shorter pause
+    }
+
+    if (pauseEnd) {
+        pauseEnd = false;
+        isDeleting = true;
+        setTimeout(type, delay);
+        return;
+    }
+
+    if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+        delay = 300;
+    }
+
+    setTimeout(type, delay);
+}
+
+type();
+
+
+

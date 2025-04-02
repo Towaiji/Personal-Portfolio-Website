@@ -405,3 +405,15 @@ header nav a {
         clip-path: circle(0% at var(--x) var(--y));
     }
 }
+
+a:hover {
+    color: #CA3EA7;
+    transition: color 0.3s ease-in-out;
+}
+
+.project .item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
