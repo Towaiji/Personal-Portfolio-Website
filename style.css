@@ -90,6 +90,7 @@ header nav a {
     display: inline-block;
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
+    background-clip: text;
 }
 
 #intro .content .des {
