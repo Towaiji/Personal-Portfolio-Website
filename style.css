@@ -490,6 +490,19 @@ header nav a {
     text-decoration: underline;
 }
 
+#writing a {
+    color: #fff;
+    text-decoration: underline;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+#writing a:hover {
+    color: #CA3EA7; /* or whatever soft color you want when hovering */
+}
+
+
+
 
 
 @media screen and (max-width: 767px) {
@@ -595,6 +608,36 @@ header nav a {
     box-shadow: 0 12px 30px rgba(0,0,0,0.4);
 }
 
+/* LIGHTBOX */
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    animation: zoomIn 0.3s ease;
+    object-fit: contain;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
 
 
 @media screen and (max-width: 991px) {

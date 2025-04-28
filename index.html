@@ -165,13 +165,29 @@
           </div>
 
         <div class="tab" id="photography">
+          <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+            <img id="lightbox-img" src="" alt="Expanded Photo">
+          </div>
           <div class="container">
             <h2 class="timeline-title">Photography</h2>
-            <p style="text-align:center;">Here are some of my favorite shots 📸</p>
+            <p style="text-align:center;">Here are some of my favorite shots 📸 </p>
+              <p>click for a close up!</p>
           
             <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 20px;">
-              <img src="images/photos/photo1.jpg" alt="Photo 1" style="width:300px; height:300px; object-fit:cover; border-radius:10px;">
-              <img src="images/photos/photo2.jpg" alt="Photo 2" style="width:300px; height:300px; object-fit:cover; border-radius:10px;">
+              <img src="images/photos/photo1.jpg" alt="Photo 1" style="width:300px; height:300px; object-fit:cover; border-radius:10px;" onclick="openLightbox(this.src)">
+              <img src="images/photos/photo2.jpg" alt="Photo 2" style="width:300px; height:300px; object-fit:cover; border-radius:10px;" onclick="openLightbox(this.src)">
+              <img src="images/photos/photo3.jpg" alt="Photo 3" style="width:300px; height:300px; object-fit:cover; border-radius:10px; " onclick="openLightbox(this.src)">
+              <img src="images/photos/photo4.jpg" alt="Photo 4" style="width:300px; height:300px; object-fit:cover; border-radius:10px;" onclick="openLightbox(this.src)">
+              <img src="images/photos/photo5.jpg" alt="Photo 5" style="width:300px; height:300px; object-fit:cover; border-radius:10px;" onclick="openLightbox(this.src)">
+              <img src="images/photos/photo6.jpg" alt="Photo 6" style="width:300px; height:300px; object-fit:cover; border-radius:10px;" onclick="openLightbox(this.src)">
+              <img src="images/photos/photo7.jpg" alt="Photo 7" style="width:300px; height:300px; object-fit:cover; border-radius:10px;" onclick="openLightbox(this.src)">
+              <img src="images/photos/photo8.jpg" alt="Photo 8" style="width:300px; height:300px; object-fit:cover; border-radius:10px;" onclick="openLightbox(this.src)">
+              <img src="images/photos/photo9.jpg" alt="Photo 9" style="width:300px; height:300px; object-fit:cover; border-radius:10px;" onclick="openLightbox(this.src)">
+              <img src="images/photos/photo10.jpg" alt="Photo 10" style="width:300px; height:300px; object-fit:cover; border-radius:10px;" onclick="openLightbox(this.src)">
+              <img src="images/photos/photo11.jpg" alt="Photo 11" style="width:300px; height:300px; object-fit:cover; border-radius:10px;"  onclick="openLightbox(this.src)">
+              <img src="images/photos/photo12.jpg" alt="Photo 12" style="width:300px; height:300px; object-fit:cover; border-radius:10px;" onclick="openLightbox(this.src)">
+              <img src="images/photos/photo13.jpg" alt="Photo 13" style="width:300px; height:300px; object-fit:cover; border-radius:10px;" onclick="openLightbox(this.src)">
+              <img src="images/photos/photo14.jpg" alt="Photo 14" style="width:300px; height:300px; object-fit:cover; border-radius:10px;" onclick="openLightbox(this.src)">
             </div>
           </div>
         </div>
@@ -180,11 +196,9 @@
           <div class="container">
             <h2>Writing</h2>
             <p>Thoughts, articles, and blogs I've published ✍️</p>
-        
+            <p><a href="https://medium.com/@aliyasiraltowaiji" target="_blank">Visit my Medium Profile</a></p>
+            
             <div class="writing-list">
-              <div class="writing-item">
-                <a href="https://medium.com/@aliyasiraltowaiji" target="_blank">Visit my Medium Profile</a>
-              </div>
               <div class="writing-item">
                 <a href="https://medium.com/@aliyasiraltowaiji/chainwatch-ai-an-agentverse-powered-crypto-companion-91fe49efcc38" target="_blank">ChainWatch AI: An Agentverse Powered Crypto Companion</a>
               </div>
