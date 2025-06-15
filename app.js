@@ -75,7 +75,8 @@ let currentIndices = {
   apps: 0,
   python: 0,
   web: 0,
-  hackathons: 0
+  hackathons: 0,
+  "open-source": 0
 };
 
 function updateCarousel() {
