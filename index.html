@@ -116,9 +116,52 @@
   <div class="tab" id="project">
     <div class="container">
       <h2 class="timeline-title">Projects</h2>
-      <div class="carousel">
+      <div class="project-categories">
+        <button data-category="apps" class="active"><i class="fa-solid fa-mobile-screen-button"></i> Apps</button>
+        <button data-category="python"><i class="fa-brands fa-python"></i> Python Projects</button>
+        <button data-category="web"><i class="fa-solid fa-globe"></i> Web Development</button>
+        <button data-category="hackathons"><i class="fa-solid fa-rocket"></i> Hackathons</button>
+      </div>
+
+      <div class="carousel category active" id="carousel-apps">
         <button class="carousel-btn left" onclick="prevSlide()">&#10094;</button>
-        <div class="carousel-track" id="carouselTrack">
+        <div class="carousel-track" id="carouselTrack-apps">
+          <div class="project-card">
+            <img src="images/project4.png" alt="Project 4">
+            <h3>Dr. Mario - Assembly Language Implementation
+            </h3>
+            <p>Developed a low-level recreation of the classic Dr. Mario game using the Saturn assembler. This project
+              aimed to replicate fundamental gameplay mechanics where players match colors to eliminate viruses, similar
+              to the original game. The implementation involved writing efficient Assembly code to handle real-time
+              inputs, memory management, and rendering. This project significantly enhanced my understanding of computer
+              architecture, Assembly language programming, and low-level logic design.
+            </p>
+            <a href="https://github.com/Towaiji/DrMario-Assembly" target="_blank">View on GitHub</a>
+          </div>
+        </div>
+        <button class="carousel-btn right" onclick="nextSlide()">&#10095;</button>
+      </div>
+
+      <div class="carousel category" id="carousel-python">
+        <button class="carousel-btn left" onclick="prevSlide()">&#10094;</button>
+        <div class="carousel-track" id="carouselTrack-python">
+          <div class="project-card">
+            <img src="images/project2.png" alt="Project 2">
+            <h3>Business analysis using Graphs
+            </h3>
+            <p>Developed an innovative business analysis map leveraging graph methodology, implemented with Python and
+              its powerful libraries. The project aimed to provide a clear visualization of business processes and
+              metrics, enhancing strategic decision-making
+            </p>
+            <a href="https://github.com/Towaiji/business-analysis-using-graphs" target="_blank">View on GitHub</a>
+          </div>
+        </div>
+        <button class="carousel-btn right" onclick="nextSlide()">&#10095;</button>
+      </div>
+
+      <div class="carousel category" id="carousel-web">
+        <button class="carousel-btn left" onclick="prevSlide()">&#10094;</button>
+        <div class="carousel-track" id="carouselTrack-web">
           <div class="project-card">
             <img src="images/project1.png" alt="Project 1">
             <h3>Volunteer Helper Website</h3>
@@ -132,16 +175,13 @@
             </p>
             <a href="https://volunteerhelper.netlify.app/" target="_blank">View</a>
           </div>
-          <div class="project-card">
-            <img src="images/project2.png" alt="Project 2">
-            <h3>Business analysis using Graphs
-            </h3>
-            <p>Developed an innovative business analysis map leveraging graph methodology, implemented with Python and
-              its powerful libraries. The project aimed to provide a clear visualization of business processes and
-              metrics, enhancing strategic decision-making
-            </p>
-            <a href="https://github.com/Towaiji/business-analysis-using-graphs" target="_blank">View on GitHub</a>
-          </div>
+        </div>
+        <button class="carousel-btn right" onclick="nextSlide()">&#10095;</button>
+      </div>
+
+      <div class="carousel category" id="carousel-hackathons">
+        <button class="carousel-btn left" onclick="prevSlide()">&#10094;</button>
+        <div class="carousel-track" id="carouselTrack-hackathons">
           <div class="project-card">
             <img src="images/project3.png" alt="Project 3">
             <h3>SignSpeak – Real-Time Sign Language Translator
@@ -155,18 +195,6 @@
             </p>
             <a href="https://github.com/Towaiji/SignLanguageTranslator" target="_blank">View on GitHub</a><br>
             <a href="https://devpost.com/software/signspeak-qoarj9" target="_blank">View on Devpost</a>
-          </div>
-          <div class="project-card">
-            <img src="images/project4.png" alt="Project 4">
-            <h3>Dr. Mario - Assembly Language Implementation
-            </h3>
-            <p>Developed a low-level recreation of the classic Dr. Mario game using the Saturn assembler. This project
-              aimed to replicate fundamental gameplay mechanics where players match colors to eliminate viruses, similar
-              to the original game. The implementation involved writing efficient Assembly code to handle real-time
-              inputs, memory management, and rendering. This project significantly enhanced my understanding of computer
-              architecture, Assembly language programming, and low-level logic design.
-            </p>
-            <a href="https://github.com/Towaiji/DrMario-Assembly" target="_blank">View on GitHub</a>
           </div>
           <div class="project-card">
             <img src="images/project5.png" alt="Project 5">

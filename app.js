@@ -70,29 +70,51 @@ function type() {
 
 type();
 
-let currentIndex = 0;
+let currentCategory = 'apps';
+let currentIndices = {
+  apps: 0,
+  python: 0,
+  web: 0,
+  hackathons: 0
+};
 
 function updateCarousel() {
-  const track = document.getElementById("carouselTrack");
+  const track = document.querySelector(`#carousel-${currentCategory} .carousel-track`);
+  const index = currentIndices[currentCategory];
   const width = track.offsetWidth;
-  track.style.transform = `translateX(-${currentIndex * width}px)`;
+  track.style.transform = `translateX(-${index * width}px)`;
 }
 
 function nextSlide() {
-  const track = document.getElementById("carouselTrack");
+  const track = document.querySelector(`#carousel-${currentCategory} .carousel-track`);
   const maxSlides = track.children.length;
-  currentIndex = (currentIndex + 1) % maxSlides;
+  currentIndices[currentCategory] = (currentIndices[currentCategory] + 1) % maxSlides;
   updateCarousel();
 }
 
 function prevSlide() {
-  const track = document.getElementById("carouselTrack");
+  const track = document.querySelector(`#carousel-${currentCategory} .carousel-track`);
   const maxSlides = track.children.length;
-  currentIndex = (currentIndex - 1 + maxSlides) % maxSlides;
+  currentIndices[currentCategory] = (currentIndices[currentCategory] - 1 + maxSlides) % maxSlides;
   updateCarousel();
 }
 
+document.querySelectorAll('.project-categories button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.project-categories button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('#project .carousel.category').forEach(c => c.classList.remove('active'));
+    currentCategory = btn.dataset.category;
+    currentIndices[currentCategory] = 0;
+    document.getElementById(`carousel-${currentCategory}`).classList.add('active');
+    updateCarousel();
+  });
+});
+
 window.addEventListener("resize", updateCarousel);
+
+// initialize carousel position
+updateCarousel();
 
 // LIGHTBOX CODE
 function openLightbox(src) {

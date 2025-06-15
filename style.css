@@ -6,7 +6,7 @@ body {
     font-size: 13px;
     --color: #eee;
     color: var(--color);
-    background-color: #23282E;
+    background-color: #121212;
 }
 
 a {
@@ -53,7 +53,7 @@ header nav a {
 }
 
 #intro {
-    background-color: #16222D;
+    background-color: #0f171f;
 }
 
 #intro .avatar {
@@ -225,6 +225,38 @@ header nav a {
 
 #project .container {
     overflow: auto;
+}
+
+.project-categories {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.project-categories button {
+    background-color: #CA3EA7;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.project-categories button i {
+    margin-right: 5px;
+}
+
+.project-categories button.active {
+    background-color: #E4454A;
+}
+
+.carousel.category {
+    display: none;
+}
+
+.carousel.category.active {
+    display: flex;
 }
 
 .carousel {
