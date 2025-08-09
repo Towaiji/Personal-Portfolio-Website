@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ali Towaiji — Portfolio</title>
+  <meta name="description" content="Ali Towaiji — developer. Projects, writing, photography, and contact." />
+  <meta property="og:title" content="Ali Towaiji — Portfolio" />
+  <meta property="og:description" content="Projects, experience, writing, and photography." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="images/og.jpg" />
+  <meta name="theme-color" content="#0f171f" />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Righteous&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    /* ====== Base / Theme ====== */
+    :root {
+      --bg: #0f1115;
+      --panel: #141822;
+      --elev: #0d1016;
+      --ink: #e8e9ee;
+      --muted: #9aa4b2;
+      --accent: #CA3EA7;
+      --accent-2: #E4454A;
+      --brand-grad: linear-gradient(90deg, #E4454A, #CA3EA7);
+      --ring: 0 0 0 2px #ffffff20;
+      --radius: 16px;
+      --shadow: 0 6px 28px rgba(0,0,0,.35);
+    }
+    :root.light {
+      --bg: #f7f8fb;
+      --panel: #ffffff;
+      --elev: #f4f6fa;
+      --ink: #101319;
+      --muted: #556070;
+      --accent: #b93595;
+      --accent-2: #d13b40;
+      --ring: 0 0 0 2px #00000015;
+      --shadow: 0 8px 28px rgba(0,0,0,.08);
+    }
+    html,body { height: 100%; }
+    body {
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      margin: 0; color: var(--ink); background: radial-gradient(1200px 600px at 70% -10%, #CA3EA720, transparent), var(--bg);
+      line-height: 1.45; letter-spacing: .2px;
+    }
+    img, video { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: 1100px; max-width: 92vw; margin: 0 auto; }
+
+    /* ====== Header ====== */
+    header {
+      position: sticky; top: 0; z-index: 50; backdrop-filter: blur(8px);
+      background: color-mix(in oklab, var(--bg) 85%, transparent);
+      border-bottom: 1px solid #ffffff12;
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
+    .brand { font: 800 18px/1 Righteous, Inter; letter-spacing: .5px; }
+    .brand span { background: var(--brand-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    nav ul { list-style: none; display: flex; gap: 18px; padding: 0; margin: 0; }
+    nav a { padding: 8px 10px; border-radius: 10px; color: var(--muted); font-weight: 600; }
+    nav a.active, nav a:hover { color: var(--ink); background: #ffffff0e; }
+
+    .rhs { display:flex; align-items:center; gap:10px; }
+    .btn-sm { padding:8px 12px; border-radius:10px; background:#ffffff10; border:1px solid #ffffff14; cursor:pointer; color:var(--ink); }
+    .btn-sm:hover { filter: brightness(1.1); }
+
+    /* ====== Hero ====== */
+    .hero { padding: 64px 0 24px; position: relative; }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 28px; align-items: center; }
+    .avatar { aspect-ratio: 4/5; border-radius: 22px; overflow: hidden; box-shadow: var(--shadow); border:1px solid #ffffff14; background: #0c0f14; }
+    .avatar img { width:100%; height:100%; object-fit: cover; filter: saturate(.9); }
+    .title { font: 800 clamp(40px, 7vw, 72px)/1 Righteous; letter-spacing:.6px; margin: 0 0 10px; }
+    .gradient { background: var(--brand-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .subtitle { color: var(--muted); font-size: clamp(16px, 1.8vw, 18px); }
+
+    .hero-cta { margin-top: 18px; display:flex; gap: 10px; flex-wrap: wrap; }
+    .btn { padding: 12px 16px; border-radius: 12px; border:1px solid #ffffff18; background: #ffffff10; color: var(--ink); font-weight: 700; cursor: pointer; }
+    .btn.primary { background: var(--brand-grad); color: white; border: none; }
+
+    .chips { display:flex; gap:8px; flex-wrap:wrap; margin-top: 12px; }
+    .chip { padding:6px 10px; border-radius:999px; border:1px solid #ffffff1a; background:#ffffff0e; color:var(--muted); font-size:12px; }
+
+    /* ====== Sections ====== */
+    section { padding: 64px 0; scroll-margin-top: 68px; }
+    h2.section { font: 800 28px/1.1 Righteous; margin: 0 0 22px; }
+
+    /* ====== Experience (timeline) ====== */
+    .timeline { position: relative; }
+    .timeline .rail { position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%); height: 2px; background: #ffffff12; }
+    .timeline .row { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(220px, 1fr); gap: 24px; overflow-x: auto; padding: 30px 0 10px; scroll-snap-type: x mandatory; }
+    .timeline .row::-webkit-scrollbar{ height: 8px; }
+    .event { position: relative; background: var(--panel); border:1px solid #ffffff14; border-radius: var(--radius); padding: 16px; box-shadow: var(--shadow); scroll-snap-align: center; }
+    .event .dot { position:absolute; left:50%; top:-14px; transform:translateX(-50%); width: 12px; height:12px; background: var(--accent-2); border:3px solid #fff; border-radius: 50%; box-shadow: 0 0 0 3px #0003; }
+    .event .date { color: var(--accent); font-weight: 800; margin: 6px 0 8px; text-align:center; }
+    .event h3 { margin: 0 0 6px; font-size: 16px; }
+    .event p { margin: 0; color: var(--muted); font-size: 13px; }
+
+    /* ====== Skills ====== */
+    .skills { display:grid; grid-template-columns: repeat(6, 1fr); gap:12px; }
+    @media (max-width: 900px){ .hero-grid{grid-template-columns:1fr;} .skills{grid-template-columns: repeat(3, 1fr);} }
+    @media (max-width: 520px){ .skills{grid-template-columns: repeat(2, 1fr);} }
+    .skill { background: var(--panel); border:1px solid #ffffff14; border-radius:14px; padding:14px; text-align:center; box-shadow: var(--shadow); transition: transform .2s ease; }
+    .skill:hover { transform: translateY(-3px); }
+    .skill i { display:grid; place-items:center; width:48px; height:48px; margin:0 auto 8px; background:#ffffff12; border-radius:10px; color:#fff; }
+    .meter { height:8px; background:#ffffff15; border-radius:6px; overflow:hidden; }
+    .meter > span { display:block; height:100%; background: var(--brand-grad); width: var(--val, 60%); }
+
+    /* ====== Projects ====== */
+    .tabs { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px; }
+    .tabs button { padding:8px 12px; border-radius:10px; border:1px solid #ffffff18; background:#ffffff10; color:var(--ink); cursor:pointer; }
+    .tabs button.active { background: var(--brand-grad); color:#fff; border:none; }
+
+    .carousel { position:relative; overflow:hidden; }
+    .track { display:flex; transition: transform .5s ease; gap:18px; }
+    .card { min-width: 100%; background: var(--panel); border:1px solid #ffffff14; border-radius:20px; color:var(--ink); box-shadow: var(--shadow); padding:18px; }
+    .card img, .card video { border-radius: 14px; margin-bottom: 12px; width:100%; max-height: 460px; object-fit: cover; }
+    .card h3 { margin:4px 0 6px; font-size: clamp(18px, 2vw, 22px); }
+    .card p { color: var(--muted); margin: 0 0 10px; }
+    .card a.btn-link { color:#fff; background: var(--brand-grad); border-radius:10px; padding:8px 12px; display:inline-block; margin-right:8px; }
+    .car-btn { position:absolute; top:50%; transform: translateY(-50%); border: none; width:42px; height:42px; border-radius:50%; background:#00000050; color:#fff; font-size:20px; cursor:pointer; }
+    .car-btn:hover{ background:#00000070; }
+    .car-btn.left { left:8px; } .car-btn.right { right:8px; }
+
+    /* ====== Photography ====== */
+    .masonry { column-count: 3; column-gap: 16px; }
+    @media (max-width: 900px) { .masonry { column-count: 2; } }
+    @media (max-width: 560px) { .masonry { column-count: 1; } }
+    .masonry img { width:100%; border-radius:16px; margin:0 0 16px; break-inside: avoid; box-shadow: var(--shadow); cursor: zoom-in; }
+    .lightbox { position:fixed; inset:0; background:#000c; display:none; align-items:center; justify-content:center; z-index:100; }
+    .lightbox img { max-width:92vw; max-height:92vh; border-radius: 12px; }
+
+    /* ====== Writing ====== */
+    .writing { display:grid; gap:14px; }
+    .writing a { display:block; background: var(--panel); border:1px solid #ffffff14; padding:16px; border-radius:14px; box-shadow: var(--shadow); }
+    .writing a:hover { outline: var(--ring); }
+
+    /* ====== Contact ====== */
+    .cards { display:grid; grid-template-columns: repeat(4, 1fr); gap:10px; }
+    @media (max-width: 760px){ .cards{grid-template-columns: repeat(2, 1fr);} }
+    .c { background:#fff; color:#111; border-radius:16px; padding:18px; display:grid; place-items:center; box-shadow: var(--shadow); transition:.2s; }
+    .c:hover{ transform: translateY(-2px); }
+
+    /* ====== Utilities ====== */
+    .muted { color: var(--muted); }
+    .spacer { height: 24px; }
+    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0; }
+    .scroll-progress { position: fixed; left:0; top:0; height:3px; background: var(--brand-grad); width:0%; z-index: 60; }
+    .to-top { position: fixed; right: 14px; bottom: 14px; width:46px; height:46px; border-radius:50%; display:grid; place-items:center; background:#ffffff14; color:#fff; border:1px solid #ffffff24; cursor:pointer; opacity:0; pointer-events:none; transition: .25s; }
+    .to-top.show { opacity: 1; pointer-events: auto; }
+
+    /* reveal on scroll */
+    .reveal { opacity:0; transform: translateY(12px); transition: .6s ease; }
+    .reveal.show { opacity:1; transform:none; }
+  </style>
+</head>
+<body>
+  <div class="scroll-progress" id="progress"></div>
+  <header>
+    <div class="container nav">
+      <div class="brand">Ali <span>Towaiji</span></div>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#intro" class="active">Intro</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#photography">Photography</a></li>
+          <li><a href="#writing">Writing</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="rhs">
+        <button class="btn-sm" id="themeBtn" aria-label="Toggle theme"><i class="fa-solid fa-circle-half-stroke"></i></button>
+        <a class="btn-sm" href="https://ali-towaiji.tiiny.site" target="_blank" rel="noopener">Resume</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero / Intro -->
+    <section id="intro" class="hero container">
+      <div class="hero-grid">
+        <div>
+          <h1 class="title">Ali Towaiji<br><span class="gradient" id="role">Developer</span></h1>
+          <p class="subtitle">I ship things. Full‑stack apps, tools, and experiments — with a soft spot for fast UI and clean DX.</p>
+          <div class="chips">
+            <span class="chip">JS/TS</span>
+            <span class="chip">Python</span>
+            <span class="chip">React Native</span>
+            <span class="chip">Three.js</span>
+            <span class="chip">Open Source</span>
+          </div>
+          <div class="hero-cta">
+            <a href="#projects" class="btn primary">See Projects</a>
+            <a href="#skills" class="btn">My Skills</a>
+          </div>
+        </div>
+        <div class="avatar reveal"><img src="images/img.JPG" alt="Ali Towaiji portrait" loading="lazy"></div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="container">
+      <h2 class="section">My Journey</h2>
+      <div class="timeline">
+        <div class="rail" aria-hidden="true"></div>
+        <div class="row" id="timelineRow">
+          <!-- Repeat events -->
+          <article class="event reveal"><span class="dot"></span><div class="date">2023</div><h3>Graduated High School</h3><p>Horizon Private School</p></article>
+          <article class="event reveal"><span class="dot"></span><div class="date">2023</div><h3>Joined University</h3><p>University of Toronto</p></article>
+          <article class="event reveal"><span class="dot"></span><div class="date">2024</div><h3>Sales & Marketing</h3><p>Beaver Sealer</p></article>
+          <article class="event reveal"><span class="dot"></span><div class="date">2024</div><h3>Operations Assistant</h3><p>Alfa Prime Concrete Supplies</p></article>
+          <article class="event reveal"><span class="dot"></span><div class="date">2025</div><h3>Software Developer (PyTA)</h3><p>University of Toronto</p></article>
+          <article class="event reveal"><span class="dot"></span><div class="date">2025</div><h3>Software Developer</h3><p>Uruk General Contracting</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="container">
+      <h2 class="section">Skills</h2>
+      <div class="skills">
+        <div class="skill reveal"><i class="fa-brands fa-html5"></i><div>HTML5</div><div class="meter" style="--val:90%"><span></span></div></div>
+        <div class="skill reveal"><i class="fa-brands fa-css3-alt"></i><div>CSS</div><div class="meter" style="--val:85%"><span></span></div></div>
+        <div class="skill reveal"><i class="fa-brands fa-js"></i><div>JavaScript</div><div class="meter" style="--val:85%"><span></span></div></div>
+        <div class="skill reveal"><i class="fa-brands fa-python"></i><div>Python</div><div class="meter" style="--val:80%"><span></span></div></div>
+        <div class="skill reveal"><i class="fa-brands fa-java"></i><div>Java</div><div class="meter" style="--val:65%"><span></span></div></div>
+        <div class="skill reveal"><i class="fa-solid fa-c"></i><div>C#</div><div class="meter" style="--val:60%"><span></span></div></div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="container">
+      <h2 class="section">Projects</h2>
+      <div class="tabs" role="tablist">
+        <button class="active" data-target="apps" role="tab" aria-selected="true">Apps</button>
+        <button data-target="python" role="tab">Python</button>
+        <button data-target="web" role="tab">Web</button>
+        <button data-target="hackathons" role="tab">Hackathons</button>
+        <button data-target="open-source" role="tab">Open Source</button>
+        <button data-target="mips" role="tab">MIPS</button>
+      </div>
+
+      <!-- Carousels per category -->
+      <div class="carousel" data-cat="apps">
+        <button class="car-btn left" aria-label="Previous">‹</button>
+        <div class="track">
+          <article class="card reveal">
+            <img src="images/Motivez.png" alt="Motivez" loading="lazy">
+            <h3>Motivez</h3>
+            <p>Discover, plan, and share experiences near you. React Native + Supabase + Google Maps.</p>
+            <a href="https://motivez.netlify.app/" class="btn-link" target="_blank" rel="noopener">Launch site</a>
+          </article>
+          <article class="card reveal">
+            <img src="images/AthanApp.png" alt="AthanApp" loading="lazy">
+            <h3>AthanApp</h3>
+            <p>Prayer reminders, mosque locator, Zakat assistant. Coming soon.</p>
+          </article>
+          <article class="card reveal">
+            <img src="images/InventoryPro.png" alt="InventoryPro" loading="lazy">
+            <h3>InventoryPro</h3>
+            <p>Simple inventory manager for individuals & small biz.</p>
+            <a href="https://youtu.be/GM-a9COBDRY?si=bpgRvEiWMmjz-kf3" class="btn-link" target="_blank" rel="noopener">Demo</a>
+          </article>
+        </div>
+        <button class="car-btn right" aria-label="Next">›</button>
+      </div>
+
+      <div class="carousel" data-cat="python" hidden>
+        <button class="car-btn left" aria-label="Previous">‹</button>
+        <div class="track">
+          <article class="card reveal">
+            <img src="images/project2.png" alt="Business analysis graphs" loading="lazy">
+            <h3>Business analysis using Graphs</h3>
+            <p>Graph methodology to visualize processes & metrics.</p>
+            <a class="btn-link" href="https://github.com/Towaiji/business-analysis-using-graphs" target="_blank" rel="noopener">GitHub</a>
+          </article>
+          <article class="card reveal">
+            <img src="images/quantum-portfolio-optimizer.png" alt="Quantum Portfolio Optimizer" loading="lazy">
+            <h3>Quantum Portfolio Optimizer</h3>
+            <p>Exploring quantum algorithms for portfolio selection.</p>
+            <a class="btn-link" href="https://github.com/Towaiji/quantum-portfolio-optimizer" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn-link" href="https://quantumportfoliooptimizer.streamlit.app/" target="_blank" rel="noopener">Live</a>
+          </article>
+          <article class="card reveal">
+            <img src="images/move-pics-to-folder-automation.png" alt="Move Pics To Folder Automation" loading="lazy">
+            <h3>Move Pics To Folder Automation</h3>
+            <p>Python automation for bulk photo organization.</p>
+            <a class="btn-link" href="https://github.com/Towaiji/move-pics-to-folder-automation" target="_blank" rel="noopener">GitHub</a>
+          </article>
+          <article class="card reveal">
+            <img src="images/Text-Based-Adventure-Game.png" alt="Text Based Adventure" loading="lazy">
+            <h3>Text-Based Adventure Game</h3>
+            <p>Classic terminal adventure.</p>
+            <a class="btn-link" href="https://github.com/Towaiji/Text-Based-Adventure-Game" target="_blank" rel="noopener">GitHub</a>
+          </article>
+        </div>
+        <button class="car-btn right" aria-label="Next">›</button>
+      </div>
+
+      <div class="carousel" data-cat="web" hidden>
+        <button class="car-btn left" aria-label="Previous">‹</button>
+        <div class="track">
+          <article class="card reveal">
+            <img src="images/project1.png" alt="Volunteer Helper" loading="lazy">
+            <h3>Volunteer Helper Website</h3>
+            <p>Connects volunteers with local orgs. Responsive, searchable.</p>
+            <a class="btn-link" href="https://volunteerhelper.netlify.app/" target="_blank" rel="noopener">Live</a>
+          </article>
+          <article class="card reveal">
+            <img src="images/motivezlaunchsite.png" alt="Motivez Launch Site" loading="lazy">
+            <h3>Motivez Launch Site</h3>
+            <p>Landing page for Motivez.</p>
+            <a class="btn-link" href="https://motivez.netlify.app/" target="_blank" rel="noopener">Live</a>
+          </article>
+          <article class="card reveal">
+            <img src="images/log-in-form.png" alt="Login Form" loading="lazy">
+            <h3>Log In Form</h3>
+            <p>Clean, responsive auth component.</p>
+            <a class="btn-link" href="https://github.com/Towaiji/log-in-form" target="_blank" rel="noopener">GitHub</a>
+          </article>
+        </div>
+        <button class="car-btn right" aria-label="Next">›</button>
+      </div>
+
+      <div class="carousel" data-cat="hackathons" hidden>
+        <button class="car-btn left" aria-label="Previous">‹</button>
+        <div class="track">
+          <article class="card reveal">
+            <img src="images/project3.png" alt="SignSpeak" loading="lazy">
+            <h3>SignSpeak — Real-Time Sign Language Translator</h3>
+            <p>Python + TensorFlow + Flask + OpenCV. LSTM model on live video.</p>
+            <a class="btn-link" href="https://github.com/Towaiji/SignLanguageTranslator" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn-link" href="https://devpost.com/software/signspeak-qoarj9" target="_blank" rel="noopener">Devpost</a>
+          </article>
+          <article class="card reveal">
+            <video src="images/ShelfScan.mov" autoplay loop muted playsinline poster="images/ShelfScan.png"></video>
+            <h3>ShelfScan</h3>
+            <p>Scan shelves, receipts, inventory; plus recipe ideas via ChefBot.</p>
+            <a class="btn-link" href="https://github.com/Towaiji/ShelfScan" target="_blank" rel="noopener">GitHub</a>
+          </article>
+          <article class="card reveal">
+            <img src="images/project5.png" alt="chainwatch ai" loading="lazy">
+            <h3>ChainWatch AI</h3>
+            <p>Micro-agent suite for crypto insights. Fetch.ai Hackathon.</p>
+            <a class="btn-link" href="https://github.com/Towaiji/chainwatch-ai" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn-link" href="https://devpost.com/software/chainwatch-ai?ref_content=my-projects-tab&ref_feature=my_projects" target="_blank" rel="noopener">Devpost</a>
+          </article>
+        </div>
+        <button class="car-btn right" aria-label="Next">›</button>
+      </div>
+
+      <div class="carousel" data-cat="open-source" hidden>
+        <button class="car-btn left" aria-label="Previous">‹</button>
+        <div class="track">
+          <article class="card reveal">
+            <img src="images/pyta.png" alt="PyTA" loading="lazy">
+            <h3>PyTA</h3>
+            <p>Contributions to static analysis tool.</p>
+            <a class="btn-link" href="https://github.com/Towaiji/pyta" target="_blank" rel="noopener">GitHub</a>
+          </article>
+        </div>
+        <button class="car-btn right" aria-label="Next">›</button>
+      </div>
+
+      <div class="carousel" data-cat="mips" hidden>
+        <button class="car-btn left" aria-label="Previous">‹</button>
+        <div class="track">
+          <article class="card reveal">
+            <img src="images/project4.png" alt="Dr. Mario Assembly" loading="lazy">
+            <h3>Dr. Mario — Assembly Implementation</h3>
+            <p>Low-level recreation using Saturn assembler.</p>
+            <a class="btn-link" href="https://github.com/Towaiji/DrMario-Assembly" target="_blank" rel="noopener">GitHub</a>
+          </article>
+        </div>
+        <button class="car-btn right" aria-label="Next">›</button>
+      </div>
+    </section>
+
+    <!-- Photography -->
+    <section id="photography" class="container">
+      <h2 class="section">Photography</h2>
+      <p class="muted">Here are some of my favorite shots — click to zoom.</p>
+      <div class="masonry">
+        <img src="images/photos/photo1.jpg" alt="photo" loading="lazy">
+        <img src="images/photos/photo2.jpg" alt="photo" loading="lazy">
+        <img src="images/photos/photo3.jpg" alt="photo" loading="lazy">
+        <img src="images/photos/photo4.jpg" alt="photo" loading="lazy">
+        <img src="images/photos/photo5.jpg" alt="photo" loading="lazy">
+        <img src="images/photos/photo6.jpg" alt="photo" loading="lazy">
+        <img src="images/photos/photo7.jpg" alt="photo" loading="lazy">
+        <img src="images/photos/photo8.jpg" alt="photo" loading="lazy">
+        <img src="images/photos/photo9.jpg" alt="photo" loading="lazy">
+        <img src="images/photos/photo10.jpg" alt="photo" loading="lazy">
+        <img src="images/photos/photo11.jpg" alt="photo" loading="lazy">
+        <img src="images/photos/photo12.jpg" alt="photo" loading="lazy">
+        <img src="images/photos/photo13.jpg" alt="photo" loading="lazy">
+        <img src="images/photos/photo14.jpg" alt="photo" loading="lazy">
+      </div>
+      <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Lightbox"><img alt="Expanded"></div>
+    </section>
+
+    <!-- Writing -->
+    <section id="writing" class="container">
+      <h2 class="section">Writing</h2>
+      <p class="muted"><a href="https://medium.com/@aliyasiraltowaiji" target="_blank" rel="noopener">Visit my Medium profile</a></p>
+      <div class="writing">
+        <a href="https://medium.com/@aliyasiraltowaiji/chainwatch-ai-an-agentverse-powered-crypto-companion-91fe49efcc38" target="_blank" rel="noopener">ChainWatch AI: An Agentverse Powered Crypto Companion</a>
+        <a href="https://medium.com/@aliyasiraltowaiji/how-hackathons-supercharged-my-technical-and-career-growth-and-how-to-win-your-first-one-24d868993493" target="_blank" rel="noopener">How Hackathons Supercharged My Technical and Career Growth</a>
+        <a href="https://medium.com/@aliyasiraltowaiji/what-i-wish-i-knew-before-starting-university-cs-bfb9635be985" target="_blank" rel="noopener">What I Wish I Knew Before Starting University CS</a>
+        <a href="https://medium.com/@aliyasiraltowaiji/why-building-side-projects-is-the-ultimate-cheat-code-for-students-8ffc2407aa2d" target="_blank" rel="noopener">Why Building Side Projects is the Ultimate Cheat Code</a>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="container">
+      <h2 class="section">Contact</h2>
+      <p class="muted">Reach out if you want to build something together.</p>
+      <div class="cards">
+        <a class="c" href="tel:+16476386639" aria-label="Phone"><i class="fa-solid fa-phone"></i>&nbsp; +1 647 638 6639</a>
+        <a class="c" href="mailto:aliyasiraltowaiji@gmail.com" aria-label="Email"><i class="fa-regular fa-envelope"></i>&nbsp; aliyasiraltowaiji@gmail.com</a>
+        <a class="c" href="https://www.linkedin.com/in/alitowaiji" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i>&nbsp; LinkedIn</a>
+        <a class="c" href="https://github.com/towaiji" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i>&nbsp; GitHub</a>
+      </div>
+    </section>
+  </main>
+
+  <button id="toTop" class="to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <script>
+    // ====== Active nav highlighting & smooth scroll ======
+    const navLinks = Array.from(document.querySelectorAll('header nav a'));
+    const sections = Array.from(document.querySelectorAll('main > section'));
+    const byId = id => document.getElementById(id);
+
+    function setActive(id){
+      navLinks.forEach(a=>a.classList.toggle('active', a.getAttribute('href')==='#'+id));
+    }
+    function onScroll(){
+      const y = window.scrollY + 110; // offset for sticky header
+      let current = sections[0].id;
+      for (const s of sections){ if (y >= s.offsetTop) current = s.id; }
+      setActive(current);
+      // progress bar
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      byId('progress').style.width = (window.scrollY / h * 100).toFixed(2) + '%';
+      // to-top visibility
+      byId('toTop').classList.toggle('show', window.scrollY > 600);
+    }
+    window.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+
+    // smooth scroll
+    navLinks.forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        e.preventDefault();
+        const id = a.getAttribute('href').slice(1);
+        document.getElementById(id).scrollIntoView({behavior:'smooth'});
+        history.pushState(null, '', '#'+id);
+      });
+    });
+
+    // ====== Theme toggle with persistence ======
+    const themeBtn = document.getElementById('themeBtn');
+    const LS_KEY = 'ali_theme';
+    const setTheme = (t)=>{ document.documentElement.classList.toggle('light', t==='light'); };
+    setTheme(localStorage.getItem(LS_KEY)||'');
+    themeBtn.addEventListener('click', ()=>{
+      const now = document.documentElement.classList.contains('light') ? 'dark' : 'light';
+      setTheme(now); localStorage.setItem(LS_KEY, now);
+    });
+
+    // ====== Typing role effect ======
+    const roles = ["Developer","Designer","Engineer","Coder","Innovator","Programmer","Explorer"];
+    let roleIdx=0, charIdx=0, deleting=false;
+    const roleEl = document.getElementById('role');
+    function type(){
+      const cur = roles[roleIdx];
+      roleEl.textContent = cur.slice(0, deleting? --charIdx : ++charIdx);
+      let delay = deleting ? 45 : 80;
+      if (!deleting && charIdx === cur.length){ deleting=true; delay=700; }
+      if (deleting && charIdx === 0){ deleting=false; roleIdx=(roleIdx+1)%roles.length; delay=250; }
+      setTimeout(type, delay);
+    }
+    type();
+
+    // ====== Reveal on scroll ======
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target);} });
+    }, {threshold: 0.18});
+    revealEls.forEach(el=>io.observe(el));
+
+    // ====== Carousels ======
+    const carousels = Array.from(document.querySelectorAll('.carousel'));
+    const indices = new Map();
+    function updateCarousel(c){
+      const track = c.querySelector('.track');
+      const i = indices.get(c) || 0;
+      const cardWidth = c.clientWidth; // full-width cards
+      track.style.transform = `translateX(${-i * (cardWidth + 18)}px)`;
+    }
+    function bindCarousel(c){
+      indices.set(c,0);
+      c.querySelector('.left').addEventListener('click', ()=>{ const max=c.querySelectorAll('.card').length; indices.set(c,(indices.get(c)-1+max)%max); updateCarousel(c); });
+      c.querySelector('.right').addEventListener('click', ()=>{ const max=c.querySelectorAll('.card').length; indices.set(c,(indices.get(c)+1)%max); updateCarousel(c); });
+      window.addEventListener('resize', ()=>updateCarousel(c));
+      updateCarousel(c);
+    }
+    carousels.forEach(bindCarousel);
+
+    // Tabs logic for project categories
+    const tabBtns = Array.from(document.querySelectorAll('.tabs button'));
+    tabBtns.forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        tabBtns.forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        const tgt = btn.dataset.target;
+        carousels.forEach(c=>{
+          const match = c.dataset.cat === tgt;
+          c.hidden = !match; if (match) { indices.set(c,0); updateCarousel(c); }
+        });
+      });
+    });
+
+    // ====== Lightbox ======
+    const lb=document.getElementById('lightbox');
+    document.querySelectorAll('.masonry img').forEach(img=>{
+      img.addEventListener('click',()=>{ lb.style.display='flex'; lb.querySelector('img').src=img.src; });
+    });
+    lb.addEventListener('click',()=>{ lb.style.display='none'; });
+    window.addEventListener('keydown', (e)=>{ if(e.key==='Escape') lb.style.display='none'; });
+
+    // ====== Back to top ======
+    document.getElementById('toTop').addEventListener('click',()=> window.scrollTo({top:0, behavior:'smooth'}));
+
+    // ====== Respect reduced motion ======
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.querySelectorAll('*').forEach(el => el.style.scrollBehavior = 'auto');
+    }
+
+    // If loaded with a hash, scroll to it
+    if (location.hash) {
+      const t = document.querySelector(location.hash);
+      if (t) setTimeout(()=>t.scrollIntoView({behavior:'smooth'}), 100);
+    }
+  </script>
+</body>
+</html>
