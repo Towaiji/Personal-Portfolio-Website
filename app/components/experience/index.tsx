@@ -4,6 +4,7 @@ import { usePortalStore } from "@stores";
 import { useRef } from "react";
 import { isMobile } from "react-device-detect";
 import * as THREE from 'three';
+import Extras from "./extras";
 import GridTile from "./GridTile";
 import Projects from "./projects";
 import Work from "./work";
@@ -20,7 +21,7 @@ const Experience = () => {
     color: 'white',
   };
 
-  useFrame((sate, delta) => {
+  useFrame((_state, delta) => {
     const d = data.range(0.8, 0.2);
     const e = data.range(0.7, 0.2);
 
@@ -60,7 +61,7 @@ const Experience = () => {
           {getTitle()}
         </group>
 
-        <group position={[0, -1, 0]} ref={groupRef}>
+        <group position={[0, isMobile ? -1.3 : -1, 0]} ref={groupRef}>
           <GridTile title='WORK AND EDUCATION'
             id="work"
             color='#b9c6d6'
@@ -74,6 +75,13 @@ const Experience = () => {
             textAlign='right'
             position={new THREE.Vector3(isMobile ? 1 : 2, 0, 0)}>
             <Projects/>
+          </GridTile>
+          <GridTile title='WRITING / PHOTO / CONTACT'
+            id="extras"
+            color='#d2d8c8'
+            textAlign='center'
+            position={new THREE.Vector3(0, isMobile ? -3.3 : -4.5, 0.2)}>
+            <Extras/>
           </GridTile>
         </group>
       </group>

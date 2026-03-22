@@ -34,14 +34,28 @@ export const WORK_TIMELINE: WorkTimelinePoint[] = [
     point: new THREE.Vector3(1, 1, -12),
     year: '2025',
     title: 'University of Toronto',
-    subtitle: 'Software Developer (PyTA Contributor)',
+    subtitle: 'Software Engineer Intern and PyTA Contributor',
     position: 'right',
   },
   {
     point: new THREE.Vector3(3, 3, -14),
     year: '2025',
     title: 'Uruk General Contracting',
-    subtitle: 'Software Developer',
+    subtitle: 'Software Engineer Intern',
     position: 'right',
+  },
+  {
+    point: new THREE.Vector3(1, 4, -18),
+    year: '2026',
+    title: 'Scotiabank',
+    subtitle: 'Software Engineer Intern',
+    position: 'right',
+  },
+  {
+    point: new THREE.Vector3(-2, 2, -21),
+    year: '2026',
+    title: 'AI for Climate Solutions',
+    subtitle: 'President, founder-focused workshops, 40+ member growth',
+    position: 'left',
   }
 ]

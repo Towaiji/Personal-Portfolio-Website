@@ -6,7 +6,14 @@ export const PROJECTS: Project[] = [
     title: 'Motivez',
     date: '2025',
     subtext: 'A mobile platform to discover, plan, and share local experiences. Built with React Native, Supabase, and Google Maps API.',
-    url: 'https://motivez.netlify.app/',
+    urls: [
+      { text: 'Launch Site', url: 'https://motivez.netlify.app/' },
+    ],
+  },
+  {
+    title: 'AthanApp',
+    date: '2025',
+    subtext: 'A prayer reminder app with a mosque locator, prayer consistency support, and a zakat planning assistant.',
   },
   {
     title: 'InventoryPro',
@@ -30,7 +37,10 @@ export const PROJECTS: Project[] = [
     title: 'SignSpeak',
     date: '2025',
     subtext: 'A real-time sign language translator built with Python, TensorFlow, Flask, and OpenCV for the Gen AI Genesis Hackathon.',
-    url: 'https://github.com/Towaiji/SignLanguageTranslator',
+    urls: [
+      { text: 'GitHub', url: 'https://github.com/Towaiji/SignLanguageTranslator' },
+      { text: 'Devpost', url: 'https://devpost.com/software/signspeak-qoarj9' },
+    ],
   },
   {
     title: 'ShelfScan',
@@ -42,7 +52,10 @@ export const PROJECTS: Project[] = [
     title: 'ChainWatch AI',
     date: '2025',
     subtext: 'A modular suite of specialized AI micro-agents built for the Fetch.ai Hackathon to deliver crypto insights and notifications.',
-    url: 'https://github.com/Towaiji/chainwatch-ai',
+    urls: [
+      { text: 'GitHub', url: 'https://github.com/Towaiji/chainwatch-ai' },
+      { text: 'Devpost', url: 'https://devpost.com/software/chainwatch-ai?ref_content=my-projects-tab&ref_feature=my_projects' },
+    ],
   },
   {
     title: 'PyTA Contributions',
@@ -55,5 +68,29 @@ export const PROJECTS: Project[] = [
     date: '2024',
     subtext: 'A low-level recreation of Dr. Mario using Saturn assembler, focused on memory handling and gameplay logic.',
     url: 'https://github.com/Towaiji/DrMario-Assembly',
+  },
+  {
+    title: 'Volunteer Helper',
+    date: '2024',
+    subtext: 'A web platform built to connect volunteers with organizations through a cleaner discovery experience.',
+    url: 'https://volunteerhelper.netlify.app/',
+  },
+  {
+    title: 'Motivez Launch Site',
+    date: '2025',
+    subtext: 'A launch site for Motivez focused on product storytelling, waitlist capture, and startup presentation.',
+    url: 'https://motivez.netlify.app/',
+  },
+  {
+    title: 'Move Pics Automation',
+    date: '2024',
+    subtext: 'A Python automation script for organizing image files into cleaner folder structures.',
+    url: 'https://github.com/Towaiji/move-pics-to-folder-automation',
+  },
+  {
+    title: 'Text Adventure Game',
+    date: '2024',
+    subtext: 'A terminal-based adventure game project focused on logic flow, interactivity, and classic game structure.',
+    url: 'https://github.com/Towaiji/Text-Based-Adventure-Game',
   },
 ];

@@ -27,7 +27,7 @@ body {
   overscroll-behavior: none;
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-vercetti), Arial, Helvetica, sans-serif;
 }
 
 :root {
@@ -82,4 +82,112 @@ body {
 
 .close:after {
   transform: rotate(-45deg);
+}
+
+.extras-html > div {
+  pointer-events: auto !important;
+}
+
+.extras-card {
+  width: 880px;
+  max-width: 88vw;
+  max-height: 580px;
+  overflow-y: auto;
+  border: 1px solid rgba(16, 16, 16, 0.16);
+  background: rgba(250, 248, 240, 0.94);
+  color: #111;
+  padding: 24px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.24);
+}
+
+.extras-topline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 18px;
+  color: rgba(17, 17, 17, 0.6);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.extras-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 22px;
+}
+
+.extras-grid h3,
+.extras-bottom h4 {
+  margin: 0 0 12px;
+  font-family: var(--font-soria), serif;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.extras-grid p,
+.extras-bottom p,
+.extras-bottom li,
+.extras-links a {
+  color: rgba(17, 17, 17, 0.75);
+  line-height: 1.5;
+}
+
+.extras-links {
+  display: grid;
+  gap: 12px;
+}
+
+.extras-links a {
+  border-top: 1px solid rgba(17, 17, 17, 0.12);
+  padding-top: 12px;
+}
+
+.extras-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.extras-gallery img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.extras-bottom {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 22px;
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(17, 17, 17, 0.12);
+}
+
+.extras-bottom ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.extras-bottom a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #111;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.78rem;
+}
+
+@media screen and (max-width: 768px) {
+  .extras-card {
+    width: 92vw;
+    max-height: 70vh;
+    padding: 18px;
+  }
+
+  .extras-grid,
+  .extras-bottom,
+  .extras-gallery {
+    grid-template-columns: 1fr;
+  }
 }

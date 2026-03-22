@@ -105,9 +105,11 @@ const Footer = () => {
     });
   };
 
+  const startX = isMobile ? -3.2 : -(FOOTER_LINKS.length - 1);
+
   return (
     <group position={[0, -44, 18]} rotation={[-Math.PI / 2, 0, 0]} ref={groupRef}>
-      <group position={[isMobile ? -2.5 : -4, 0, 0]}>
+      <group position={[startX, 0, 0]}>
         { getLinks() }
       </group>
     </group>

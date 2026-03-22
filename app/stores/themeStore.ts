@@ -7,11 +7,14 @@ interface Theme {
 }
 
 const AvailableThemes: Theme[] = [{
-  type: 'light',
-  color: '#0690d4'
+  type: 'ink',
+  color: '#0a111b'
 }, {
-  type: 'dark',
-  color: '#111'
+  type: 'stone',
+  color: '#11100e'
+}, {
+  type: 'forest',
+  color: '#071712'
 }];
 
 interface ThemeStore {

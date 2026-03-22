@@ -34,15 +34,16 @@ const GridTile = (props: GridTileProps) => {
     // Hanlde the hover box and title animation for mobile.
     if (isMobile && titleRef.current) {
       const isWork = id === 'work';
+      const isExtras = id === 'extras';
       gsap.to(titleRef.current, {
-        fontSize: 0.13,
+        fontSize: isExtras ? 0.11 : 0.13,
         maxWidth: 4,
-        color: isWork ? '#FFF' : '#888',
+        color: isWork ? '#FFF' : isExtras ? '#222' : '#888',
         letterSpacing: 0.4,
       });
       gsap.to(titleRef.current.position, {
-        x: isWork ? 1: -1,
-        y: isWork ? -1.7 : 1.5,
+        x: isWork ? 1 : isExtras ? 0 : -1,
+        y: isWork ? -1.7 : isExtras ? -1.85 : 1.5,
         duration: 0.5,
       });
     }
@@ -164,10 +165,14 @@ const GridTile = (props: GridTileProps) => {
 
   const getGeometry = () => {
     if (!isMobile) {
-      return <planeGeometry args={[4, 4, 1]} />
+      return <planeGeometry args={id === 'extras' ? [4.6, 2.3, 1] : [4, 4, 1]} />
     }
 
     const isWork = id === 'work';
+    const isExtras = id === 'extras';
+    if (isExtras) {
+      return <planeGeometry args={[3.6, 1.4, 1]} />
+    }
     const points = isWork ?
       [[-1, 2, 0], [-1, -2, 0], [3, -2, 0]] :
       [[-3, 2, 0], [1, -2, 0], [1, 2, 0]];
@@ -184,7 +189,7 @@ const GridTile = (props: GridTileProps) => {
       { getGeometry() }
       <group>
         <mesh position={[0, 0, -0.01]} ref={hoverBoxRef} scale={[0, 0, 0]}>
-          <boxGeometry args={[4, 4, 0.5]}/>
+          <boxGeometry args={[id === 'extras' ? 4.6 : 4, id === 'extras' ? 2.3 : 4, 0.5]}/>
           <meshPhysicalMaterial
             color="#444"
             transparent={true}
@@ -192,7 +197,7 @@ const GridTile = (props: GridTileProps) => {
           />
           <Edges color="white" lineWidth={3}/>
         </mesh>
-        <Text position={[0, -1.8, 0.4]} {...fontProps} ref={titleRef}>
+        <Text position={[0, id === 'extras' ? -1 : -1.8, 0.4]} {...fontProps} ref={titleRef}>
           {title}
         </Text>
       </group>
